@@ -42,13 +42,6 @@ DD_APP_KEY=your_app_key
 
 ## Usage 💻
 
-### Monitor State Check
-
-```python
-# Get state of a specific monitor
-response = get_monitor_states(name="traefik")
-```
-
 ### Kubernetes Log Analysis
 
 ```python
@@ -74,6 +67,82 @@ The tool includes:
 - **Modular Design**: Separate functions for monitors and logs
 - **Type Safety**: Full typing support with Python type hints
 - **API Abstraction**: Wrapped Datadog API calls with error handling
+
+I'll add a section about MCP and Claude Desktop setup:
+
+# Model Context Protocol (MCP) Introduction 🤖
+
+## What is MCP?
+
+Model Context Protocol (MCP) is a framework allowing AI models to interact with external tools and APIs in a standardized way. It enables models like Claude to:
+
+- Access external data
+- Execute commands
+- Interact with APIs
+- Maintain context across conversations
+
+## Claude Desktop Setup for MCP 🖥️
+
+1. Install Claude Desktop
+
+```bash
+# Assuming you're on macOS
+brew install claude-desktop
+
+# Or download from official website
+https://claude.ai/desktop
+```
+
+3. Set up Datadog MCP:
+
+```bash
+# Clone the repository
+
+
+# Install as MCP extension
+cd datadog
+task install-mcp
+```
+
+4. Verify Installation:
+
+```python
+# In Claude chat
+# Test MCP connection
+response = get_monitor_states(name="test")
+```
+
+## MCP Structure in This Project 📐
+
+```python
+# MCP Server setup
+mcp = FastMCP(
+    "Datadog-MCP-Server",
+    dependencies=[
+        "loguru",
+        "icecream",
+        "python-dotenv",
+        "datadog-api-client",
+    ],
+)
+
+# Tool definition
+@mcp.tool()
+def get_monitor_states():
+    # Tool implementation
+
+# Prompt definition
+@mcp.prompt()
+def analyze_error_logs():
+    # Prompt implementation
+```
+
+## Security Considerations 🔒
+
+- Store API keys in `.env`
+- MCP runs in isolated environment
+- Each tool has defined permissions
+- Rate limiting is implemented
 
 ## Contributing 🤝
 
