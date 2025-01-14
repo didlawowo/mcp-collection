@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  setup:
+    desc: Install Python dependencies using pipenv
+    cmds:
+    - pipenv install --python 3.12 && pipenv shell
+
+  clean:
+    desc: Clean up pipenv environment
+    cmds:
+    - pipenv --rm
+
+  shell:
+    desc: Start pipenv shell
+    cmds:
+    - pipenv shell
+
+  install-mcp:
+    desc: Install mcp
+    cmds:
+    - uv run fastmcp install {{ .CLI_ARGS }}
+
+  run-mcp-inspector:
+    desc: Run mcp inspector
+    cmds:
+    - uv run fastmcp dev {{.CLI_ARGS}}
