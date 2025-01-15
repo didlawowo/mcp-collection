@@ -28,7 +28,7 @@ fastmcp
 loguru
 icecream
 python-dotenv
-
+uv
 ```
 
 ## Environment Setup 🔑
@@ -81,6 +81,14 @@ Model Context Protocol (MCP) is a framework allowing AI models to interact with 
 - Interact with APIs
 - Maintain context across conversations
 
+## some examples of MCP servers
+
+<https://github.com/punkpeye/awesome-mcp-servers?tab=readme-ov-file>
+
+## Tutorial for setup MCP
+
+<https://medium.com/@pedro.aquino.se/how-to-use-mcp-tools-on-claude-desktop-app-and-automate-your-daily-tasks-1c38e22bc4b0>
+
 ## Claude Desktop Setup for MCP 🖥️
 
 1. Install Claude Desktop
@@ -96,20 +104,53 @@ https://claude.ai/desktop
 3. Set up Datadog MCP:
 
 ```bash
-# Clone the repository
+# on mac is 
+~/Library/Application\ Support/Claude/claude_desktop_config.json
+````
 
+```json
+# change your claude config json by adding mcp
+    "Datadog-MCP-Server": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "datadog-api-client",
+        "--with",
+        "fastmcp",
+        "--with",
+        "icecream",
+        "--with",
+        "loguru",
+        "--with",
+        "python-dotenv",
+        "fastmcp",
+        "run",
+        "/your-path/mcp-collection/datadog/main.py"
+      ],
+      "env": {
+        "DD_API_KEY": "xxxx",
+        "DD_APP_KEY": "xxx"
+      }
+    },
+```
 
+```bash 
 # Install as MCP extension
 cd datadog
 task install-mcp
 ```
 
-4. Verify Installation:
+## 4. Verify Installation:
 
-```python
-# In Claude chat
-# Test MCP connection
-response = get_monitor_states(name="test")
+ 
+### In Claude chat desktop
+ check datadog connection in claude
+
+![setup claude](assets/config.png)
+
+ you will see that
+![alt text](./assets/config2.png)
 ```
 
 ## MCP Structure in This Project 📐
