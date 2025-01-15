@@ -259,7 +259,6 @@ task install-mcp
  you will see that
 ![alt text](./assets/config2.png)
 
-```
 
 ## MCP Structure in This Project 📐
 
