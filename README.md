@@ -2,11 +2,11 @@
 
 A Python-based tool to interact with Datadog API and fetch monitoring data from your infrastructure. This MCP provides easy access to monitor states and Kubernetes logs through a simple interface.
 
-## Features 🌟
+## Datadog Features 🌟
 
 - **Monitor State Tracking**: Fetch and analyze specific monitor states
 - **Kubernetes Log Analysis**: Extract and format error logs from Kubernetes clusters
-- **Structured Output**: JSON formatted responses for easy integration
+ 
 
 ## Prerequisites 📋
 
@@ -89,6 +89,113 @@ Model Context Protocol (MCP) is a framework allowing AI models to interact with 
 
 <https://medium.com/@pedro.aquino.se/how-to-use-mcp-tools-on-claude-desktop-app-and-automate-your-daily-tasks-1c38e22bc4b0>
 
+I'll add these sections to your README.md:
+
+## Troubleshooting 🔧
+
+### Using MCP Inspector
+
+```bash
+# Launch MCP Inspector for debugging
+task run-mcp-inspector
+```
+
+The MCP Inspector provides:
+
+- Real-time view of MCP server status
+- Function call logs
+- Error tracing
+- API response monitoring
+
+Common issues and solutions:
+
+1. **API Authentication Errors**
+
+   ```bash
+   Error: (403) Forbidden
+   ```
+
+   ➡️ Check your DD_API_KEY and DD_APP_KEY in .env
+
+2. **MCP Connection Issues**
+
+   ```bash
+   Error: Failed to connect to MCP server
+   ```
+
+   ➡️ Verify your claude_desktop_config.json path and content
+
+3. **Monitor Not Found**
+
+   ```bash
+   Error: No monitor found with name 'xxx'
+   ```
+
+   ➡️ Check monitor name spelling and case sensitivity
+
+## Available Functions 🛠️
+
+### 1. Get Monitor States
+
+```python
+get_monitor_states(
+    name: str,           # Monitor name to search
+    timeframe: int = 1   # Hours to look back
+)
+```
+
+Example:
+
+```python
+# In Claude Desktop
+response = get_monitor_states(name="traefik")
+
+# Sample Output
+{
+    "id": "12345678",
+    "name": "traefik",
+    "status": "OK",
+    "query": "avg(last_5m):avg:traefik.response_time{*} > 1000",
+    "message": "Response time is too high",
+    "type": "metric alert",
+    "created": "2024-01-14T10:00:00Z",
+    "modified": "2024-01-14T15:30:00Z"
+}
+```
+
+### 2. Get Kubernetes Logs
+
+```python
+get_k8s_logs(
+    cluster: str,            # Kubernetes cluster name
+    timeframe: int = 5,      # Hours to look back
+    namespace: str = None    # Optional namespace filter
+)
+```
+
+Example:
+
+```python
+# In Claude Desktop
+logs = get_k8s_logs(
+    cluster="prod-cluster",
+    timeframe=3,
+    namespace="default"
+)
+
+# Sample Output
+{
+    "timestamp": "2024-01-14T22:00:00Z",
+    "host": "worker-1",
+    "service": "nginx-ingress",
+    "pod_name": "nginx-ingress-controller-abc123",
+    "namespace": "default",
+    "container_name": "controller",
+    "message": "Connection refused",
+    "status": "error"
+}
+```
+
 ## Claude Desktop Setup for MCP 🖥️
 
 1. Install Claude Desktop
@@ -106,10 +213,10 @@ https://claude.ai/desktop
 ```bash
 # on mac is 
 ~/Library/Application\ Support/Claude/claude_desktop_config.json
-````
 
-```json
-# change your claude config json by adding mcp
+
+# Add this to your claude config json
+
     "Datadog-MCP-Server": {
       "command": "uv",
       "args": [
@@ -135,22 +242,23 @@ https://claude.ai/desktop
     },
 ```
 
-```bash 
+```bash
 # Install as MCP extension
 cd datadog
 task install-mcp
 ```
 
-## 4. Verify Installation:
+## 4. Verify Installation
 
- 
 ### In Claude chat desktop
+
  check datadog connection in claude
 
 ![setup claude](assets/config.png)
 
  you will see that
 ![alt text](./assets/config2.png)
+
 ```
 
 ## MCP Structure in This Project 📐
@@ -199,4 +307,5 @@ Feel free to:
 - Default timeframe is 1 hour for monitor states
 - Page size limits are set to handle most use cases
 
-Would you like me to add any specific section or elaborate on any part?
+ ## License 📜
+ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
