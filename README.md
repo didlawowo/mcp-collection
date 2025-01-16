@@ -6,7 +6,6 @@ A Python-based tool to interact with Datadog API and fetch monitoring data from 
 
 - **Monitor State Tracking**: Fetch and analyze specific monitor states
 - **Kubernetes Log Analysis**: Extract and format error logs from Kubernetes clusters
- 
 
 ## Prerequisites 📋
 
@@ -89,8 +88,6 @@ Model Context Protocol (MCP) is a framework allowing AI models to interact with 
 
 <https://medium.com/@pedro.aquino.se/how-to-use-mcp-tools-on-claude-desktop-app-and-automate-your-daily-tasks-1c38e22bc4b0>
 
-I'll add these sections to your README.md:
-
 ## Troubleshooting 🔧
 
 ### Using MCP Inspector
@@ -107,7 +104,7 @@ The MCP Inspector provides:
 - Error tracing
 - API response monitoring
 
-Common issues and solutions:
+### Common issues and solutions
 
 1. **API Authentication Errors**
 
@@ -208,7 +205,7 @@ brew install claude-desktop
 https://claude.ai/desktop
 ```
 
-3. Set up Datadog MCP:
+2. Set up Datadog MCP config:
 
 ```bash
 # on mac is 
@@ -260,30 +257,9 @@ task install-mcp
 ![alt text](./assets/config2.png)
 
 
-## MCP Structure in This Project 📐
+## 5. Use Datadog MCP Tools
 
-```python
-# MCP Server setup
-mcp = FastMCP(
-    "Datadog-MCP-Server",
-    dependencies=[
-        "loguru",
-        "icecream",
-        "python-dotenv",
-        "datadog-api-client",
-    ],
-)
 
-# Tool definition
-@mcp.tool()
-def get_monitor_states():
-    # Tool implementation
-
-# Prompt definition
-@mcp.prompt()
-def analyze_error_logs():
-    # Prompt implementation
-```
 
 ## Security Considerations 🔒
 
@@ -306,5 +282,6 @@ Feel free to:
 - Default timeframe is 1 hour for monitor states
 - Page size limits are set to handle most use cases
 
- ## License 📜
+## License 📜
+
  This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
