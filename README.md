@@ -89,9 +89,11 @@ https://claude.ai/desktop
 
 ## Usage 💻
 
-[demo-monitor](<https://github.com/didlawowo/mcp-collection/raw/refs/heads/main/assets/monitor.webm>)
-[demo-log](<https://github.com/didlawowo/mcp-collection/raw/refs/heads/main/assets/logs.webm>)
+<video src="https://github.com/didlawowo/mcp-collection/raw/refs/heads/main/assets/monitor.webm" controls="controls" muted="muted" style="max-width:720px;">
+</video>
 
+<video src="https://github.com/didlawowo/mcp-collection/raw/refs/heads/main/assets/logs.webm" controls="controls" muted="muted" style="max-width:720px;">
+</video>
 ## Architecture 🏗
 
 - **FastMCP Base**: Utilizes FastMCP framework for tool management
