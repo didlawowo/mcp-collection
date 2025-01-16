@@ -89,9 +89,9 @@ https://claude.ai/desktop
 
 ## Usage 💻
 
-[get logs](assets/logs.mp4)
+[get logs](assets/logs.gif)
 
-[get monitor](assets/monitor.mp4)
+[get monitor](assets/monitor.gif)
 
 ## Architecture 🏗
 
@@ -274,6 +274,3 @@ Feel free to:
 - Default timeframe is 1 hour for monitor states
 - Page size limits are set to handle most use cases
 
-## License 📜
-
- This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
