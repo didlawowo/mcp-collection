@@ -39,8 +39,6 @@ DD_API_KEY=your_api_key
 DD_APP_KEY=your_app_key
 ```
 
-
-
 ## Setup Claude Desktop Setup for MCP 🖥️
 
 1. Install Claude Desktop
@@ -89,9 +87,12 @@ https://claude.ai/desktop
 
 ## Usage 💻
 
-[video](<assets/monitor.webm>)
-[video](<assets/logs.webm>)
+<video src="assets/monitor.webm" controls="controls" muted="muted" style="max-width:720px;">
 
+</video>
+<video src="assets/logs.webm" controls="controls" muted="muted" style="max-width:720px;">
+
+</video>
 ## Architecture 🏗
 
 - **FastMCP Base**: Utilizes FastMCP framework for tool management
@@ -119,9 +120,10 @@ Model Context Protocol (MCP) is a framework allowing AI models to interact with 
 ## Tutorial for setup MCP
 
 <https://medium.com/@pedro.aquino.se/how-to-use-mcp-tools-on-claude-desktop-app-and-automate-your-daily-tasks-1c38e22bc4b0>
+
 ## How it works - Available Functions 🛠️
 
-the LLM use provided function to get the data and use it 
+the LLM use provided function to get the data and use it
 
 ### 1. Get Monitor States
 
@@ -183,7 +185,6 @@ logs = get_k8s_logs(
 }
 ```
 
-
 ```bash
 # Install as MCP extension
 cd datadog
@@ -209,7 +210,6 @@ task install-mcp
 - MCP runs in isolated environment
 - Each tool has defined permissions
 - Rate limiting is implemented
-
 
 ## Troubleshooting 🔧
 
@@ -256,8 +256,6 @@ The MCP Inspector provides:
 4. **logs can be found here**
 
 ![alt text](assets/logs.png)
-
-
 
 ## Contributing 🤝
 
