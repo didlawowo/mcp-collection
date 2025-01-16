@@ -61,7 +61,7 @@ https://claude.ai/desktop
 
 
 # Add this to your claude config json
-
+```json
     "Datadog-MCP-Server": {
       "command": "uv",
       "args": [
@@ -89,8 +89,8 @@ https://claude.ai/desktop
 
 ## Usage 💻
 
-[text](<assets/monitor.mov>)
-[text](<assets/logs.mov>)
+[video](<assets/monitor.webm>)
+[video](<assets/logs.webm>)
 
 ## Architecture 🏗
 
