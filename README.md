@@ -199,8 +199,6 @@ task install-mcp
 
 ![setup claude](assets/config.png)
 
- you will see that
-![alt text](./assets/config2.png)
 
 ## 5. Use Datadog MCP Tools
 
