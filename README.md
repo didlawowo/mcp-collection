@@ -89,9 +89,9 @@ https://claude.ai/desktop
 
 ## Usage 💻
 
-![get logs](assets/logs.mp4)
+![get logs](assets/logs.gif)
 
-![get monitor](assets/monitor.mp4)
+![get monitor](assets/monitor.gif)
 
 ## Architecture 🏗
 
