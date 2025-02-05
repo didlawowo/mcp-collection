@@ -1,0 +1,21 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - ddApiKey
+      - ddAppKey
+    properties:
+      ddApiKey:
+        type: string
+        description: Datadog API key for authentication.
+      ddAppKey:
+        type: string
+        description: Datadog application key for authentication.
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    (config) => ({command: 'python', args: ['main.py'], env: {DD_API_KEY: config.ddApiKey, DD_APP_KEY: config.ddAppKey}})

@@ -1,5 +1,7 @@
 # Datadog Model Context Protocol (MCP) 🔍
 
+[![smithery badge](https://smithery.ai/badge/@didlawowo/mcp-collection)](https://smithery.ai/server/@didlawowo/mcp-collection)
+
 A Python-based tool to interact with Datadog API and fetch monitoring data from your infrastructure. This MCP provides easy access to monitor states and Kubernetes logs through a simple interface.
 
 ## Datadog Features 🌟
@@ -15,8 +17,12 @@ A Python-based tool to interact with Datadog API and fetch monitoring data from 
 
 ## Installation 🔧
 
+### Installing via Smithery
+
+To install Datadog for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@didlawowo/mcp-collection):
+
 ```bash
-pip install -r requirements.txt
+npx -y @smithery/cli install @didlawowo/mcp-collection --client claude
 ```
 
 Required packages:
@@ -271,4 +277,3 @@ Feel free to:
 - API calls are made to Datadog EU site
 - Default timeframe is 1 hour for monitor states
 - Page size limits are set to handle most use cases
-
