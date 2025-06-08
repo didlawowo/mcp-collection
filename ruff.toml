@@ -1,3 +1,0 @@
-[lint]
-ignore = ["F722", "F821"]
-extend-select = ["I"]
