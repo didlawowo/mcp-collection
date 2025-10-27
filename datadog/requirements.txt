@@ -1,7 +1,7 @@
 
 datadog-api-client==2.31.0
 
-mcp==1.2.0
+mcp==1.10.0
 
 python-dotenv==1.0.1
 
